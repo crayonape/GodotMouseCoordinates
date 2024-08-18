@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://bohlwqsjxeytw"]
+
+[node name="Save" type="CheckBox"]
+text = "Save"
