@@ -7,9 +7,11 @@ Addon for displaying mouse coordinates
 Download the `.zip` file from the release, unzip it and put the whole folder into the plugins folder of your Godot project. 
 
 #### Options 
-![image](https://github.com/user-attachments/assets/8557abe4-d636-4b3a-9154-a66aad94c83a)
+![image](https://github.com/user-attachments/assets/6e2d14fe-f235-4e27-8319-a2f9fcfe252e)
 
-Check the `Int` checkbox to display only integer coordinates. If you don't want the coordinates to refresh too much, check the `Save` checkbox and the coordinates will only update when you don't move the mouse.
+The scissors icon toggles between `Int` and `Float`.
+The plug icon toggles between `Always Refresh` and `Only Refresh When Mouse Isn't Moving`.
+The location icon toggles between `Global Coordinates` and `Local Coordinates of Selected Node`.
 
 #### Available version
 Tested in Godot 4.3
