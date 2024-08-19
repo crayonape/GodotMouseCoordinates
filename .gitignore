@@ -14,4 +14,5 @@ export_presets.cfg
 data_*/
 mono_crash.*.json
 
+config.cfg
 .DS_Store

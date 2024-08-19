@@ -12,6 +12,7 @@ var position_component: Label
 
 var root_node: Node
 var selection: EditorSelection
+var select_node: Node
 
 var _pos := Vector2(0.0, 0.0)
 var _is_integer := false
@@ -53,7 +54,7 @@ func _enter_tree():
 	save_component.find_child("Save").button_pressed = _is_save
 	local_component.find_child("Local").button_pressed = _is_local
 
-	_update_local_pos()
+	_update_select_node()
 	_update_position_component()
 
 
@@ -111,19 +112,24 @@ func _on_local_toggled(status: bool) -> void:
 
 
 func _on_selection_changed() -> void:
-	_update_local_pos()
+	_update_select_node()
 	
 	_update_position_component()
 
 
-func _update_local_pos() -> void:
+func _update_select_node() -> void:
 	var selected = selection.get_selected_nodes()
 	
-	if selected.size() > 0:
-		_local_pos = selected[0].position
+	if selected.size() > 0 and selected[0] is Node:
+		select_node = selected[0]
+		#_local_pos = selected[0].position
+		
 
 
 func _update_position_component() -> void:
+	if select_node:
+		_local_pos = select_node.position
+		
 	var calculated_pos := (_pos - _local_pos) if _is_local else _pos  
 
 	if _is_integer:
