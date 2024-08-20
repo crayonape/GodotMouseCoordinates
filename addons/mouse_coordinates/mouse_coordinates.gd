@@ -129,7 +129,7 @@ func _update_select_node() -> void:
 
 func _update_position_component() -> void:
 	if select_node != null:
-		_local_pos = select_node.position
+		_local_pos = select_node.global_position
 		
 	var calculated_pos := (_pos - _local_pos) if _is_local else _pos  
 
