@@ -123,11 +123,12 @@ func _update_select_node() -> void:
 	if selected.size() > 0 and selected[0] is Node:
 		select_node = selected[0]
 		#_local_pos = selected[0].position
+	else:
+		select_node = null
 		
 
-
 func _update_position_component() -> void:
-	if select_node:
+	if select_node != null:
 		_local_pos = select_node.position
 		
 	var calculated_pos := (_pos - _local_pos) if _is_local else _pos  
