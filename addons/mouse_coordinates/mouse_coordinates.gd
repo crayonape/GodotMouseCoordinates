@@ -134,7 +134,7 @@ func _update_position_component() -> void:
 	var calculated_pos := (_pos - _local_pos) if _is_local else _pos  
 
 	if _is_integer:
-		position_component.text = str(Vector2i(int(calculated_pos.x), int(calculated_pos.y)))
+		position_component.text = str(Vector2i(roundi(calculated_pos.x), roundi(calculated_pos.y)))
 	else:
 		position_component.text = str(calculated_pos)
 
