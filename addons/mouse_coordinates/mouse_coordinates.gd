@@ -120,7 +120,7 @@ func _on_selection_changed() -> void:
 func _update_select_node() -> void:
 	var selected = selection.get_selected_nodes()
 	
-	if selected.size() > 0 and selected[0] is Node:
+	if selected.size() > 0:
 		select_node = selected[0]
 		#_local_pos = selected[0].position
 	else:
@@ -128,7 +128,7 @@ func _update_select_node() -> void:
 		
 
 func _update_position_component() -> void:
-	if select_node != null:
+	if select_node != null and "global_position" in select_node:
 		_local_pos = select_node.global_position
 		
 	var calculated_pos := (_pos - _local_pos) if _is_local else _pos  
@@ -137,7 +137,3 @@ func _update_position_component() -> void:
 		position_component.text = str(Vector2i(roundi(calculated_pos.x), roundi(calculated_pos.y)))
 	else:
 		position_component.text = str(calculated_pos)
-
-
-
-
