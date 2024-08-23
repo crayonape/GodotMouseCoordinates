@@ -4,7 +4,7 @@ Addon for displaying mouse coordinates
 
  #### How to use 
 
-Download the `.zip` file from the release, unzip it and put the whole folder into the addons folder of your Godot project. 
+Download the `.zip` file, unzip it and put the `mouse_coordinates` folder into your Godot project's addons folder.
 
 #### Options 
 ![image](https://github.com/user-attachments/assets/6e2d14fe-f235-4e27-8319-a2f9fcfe252e)
