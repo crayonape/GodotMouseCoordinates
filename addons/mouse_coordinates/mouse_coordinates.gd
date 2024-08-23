@@ -77,11 +77,11 @@ func _process(_delta) -> void:
 	
 
 func _input(event: InputEvent):
-	if not root_node:
+	if root_node == null:
 		return
-
+		
 	_pos = root_node.get_global_mouse_position()
-
+	
 	if not _is_save:
 		_update_position_component()
 	
@@ -137,3 +137,7 @@ func _update_position_component() -> void:
 		position_component.text = str(Vector2i(roundi(calculated_pos.x), roundi(calculated_pos.y)))
 	else:
 		position_component.text = str(calculated_pos)
+
+
+
+
