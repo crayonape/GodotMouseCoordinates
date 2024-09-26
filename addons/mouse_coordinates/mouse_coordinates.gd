@@ -37,7 +37,7 @@ func _enter_tree():
 	add_control_to_container(CONTAINER_CANVAS_EDITOR_MENU, position_component)
 
 	root_node = get_editor_interface().get_edited_scene_root()
-	scene_changed.connect(func(_new_root_node: Node): root_node = get_editor_interface().get_edited_scene_root())
+	scene_changed.connect(_update_root_node)
 
 	selection = get_editor_interface().get_selection()
 	selection.selection_changed.connect(_on_selection_changed)
@@ -79,6 +79,9 @@ func _process(_delta) -> void:
 func _input(event: InputEvent):
 	if root_node == null:
 		return
+
+	if not root_node.has_method("get_global_mouse_position"):
+		return
 		
 	_pos = root_node.get_global_mouse_position()
 	
@@ -118,6 +121,8 @@ func _on_selection_changed() -> void:
 
 
 func _update_select_node() -> void:
+	root_node = get_editor_interface().get_edited_scene_root()
+	
 	var selected = selection.get_selected_nodes()
 	
 	if selected.size() > 0:
@@ -138,6 +143,10 @@ func _update_position_component() -> void:
 	else:
 		position_component.text = str(calculated_pos)
 
+
+func _update_root_node(_new_root_node: Node): 
+	root_node = get_editor_interface().get_edited_scene_root()
+	#root_node = new_root_node
 
 
 
